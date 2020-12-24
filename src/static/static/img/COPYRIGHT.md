@@ -1,0 +1,1 @@
+All images in this folder are not licensed under the same MIT license as the rest of the repository. Instead all rights are reserved.

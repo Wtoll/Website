@@ -1,0 +1,33 @@
+{{ define "context" }}home{{ end }}
+
+{{ define "head" }}
+    <title>Home | {{ .Site.Title }}</title>
+    {{ $style := resources.Get "styles/home.sass" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+    <link rel="stylesheet" href="{{ $style.Permalink }}">
+{{ end }}
+
+{{ define "body" }}
+    <section id="splash">
+        <div class="sidetrack">
+            <p class="circle-motif">◐</p>
+        </div>
+        <constrainer>
+            <p class="circle-motif">◐</p>
+            <p class="page-indicator">0001</p>
+            <p class="title">Will<br>Toll</p>
+        </constrainer>
+        <div class="sidetrack">
+            <p class="page-indicator">0001</p>
+        </div>
+    </section>
+    <section id="hi">
+        <div class="sidetrack">
+            <p class="circle-motif">◐</p>
+        </div>
+        <constrainer>
+        </constrainer>
+        <div class="sidetrack">
+            <p class="page-indicator">0002</p>
+        </div>
+    </section>
+{{ end }}

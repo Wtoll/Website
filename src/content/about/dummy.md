@@ -1,0 +1,1 @@
+This is a dummy file that only exists in order to force build the about page using the template engine. There should not be any other files inside of the about folder, but honestly it doesn't really matter because they will all build to the same thing.

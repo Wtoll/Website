@@ -1,0 +1,10 @@
+{
+    "baseURL": "http://wtoll.com/",
+    "languageCode": "en-us",
+    "title": "Will Toll",
+    "permalinks": {
+        "about": "/:section/",
+        "résumé": "/:section/",
+        "posts": "/post/:filename/"
+    }
+}

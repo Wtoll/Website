@@ -1,0 +1,8 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" media="screen" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+{{ $style := resources.Get "styles/main.sass" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $style.Permalink }}">
+<script src="{{ "static/js/main.js" | absURL }}" charset="utf-8"></script>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&amp;family=Roboto+Mono:wght@500;700&amp;family=Roboto:wght@500&amp;display=swap" rel="stylesheet">
