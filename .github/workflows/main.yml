@@ -17,6 +17,6 @@ jobs:
         with:
           submodules: true
       - name: Publish Site
-        uses: chabad360/hugo-gh-pages@main
+        uses: chabad360/hugo-gh-pages@master
         with:
           githubToken: ${{ secrets.GH_PAT }}
