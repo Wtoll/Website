@@ -8,9 +8,6 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./src
     steps:
       - name: Checkout Repo
         uses: actions/checkout@main
@@ -18,5 +15,6 @@ jobs:
           submodules: true
       - name: Publish Site
         uses: chabad360/hugo-gh-pages@master
+        working-directory: ./src
         with:
           githubToken: ${{ secrets.GH_PAT }}
