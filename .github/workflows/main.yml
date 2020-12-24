@@ -13,9 +13,8 @@ jobs:
         uses: actions/checkout@main
         with:
           submodules: true
-      - name: Change directory
-        run: cd ./src
       - name: Publish Site
         uses: chabad360/hugo-gh-pages@master
         with:
+          siteDir: /github/workspace/src
           githubToken: ${{ secrets.GH_PAT }}
