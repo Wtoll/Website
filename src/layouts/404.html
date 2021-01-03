@@ -3,7 +3,7 @@
 {{ define "head" }}
     <title>404 Page not found | {{ .Site.Title }}</title>
     {{ $style := resources.Get "styles/404.sass" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-    <link rel="stylesheet" href="{{ $style.Permalink }}">
+    <link rel="stylesheet" type="text/css" href="{{ $style.Permalink }}">
 {{ end }}
 
 {{ define "body" }}
