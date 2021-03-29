@@ -2,9 +2,24 @@
     "baseURL": "https://wtoll.com/",
     "languageCode": "en-us",
     "title": "Will Toll",
-    "permalinks": {
-        "about": "/:section/",
-        "résumé": "/:section/",
-        "posts": "/post/:filename/"
+    "author": "Will Toll",
+    "buildDrafts": false,
+    "canonifyUrls": true,
+    "theme": "hugo-goa",
+    "params": {
+        "author": "Will Toll",
+        "intro": "Designer, Programmer, Photographer, and Student",
+        "authorimage": "profile.jpeg",
+        "social": {
+            "github": "Wtoll",
+            "instagram": "will.toll",
+            "twitter": "wtoll_",
+            "email": "will@wtoll.com"
+        },
+        "extra": {
+            "copyright": "© 2021 William Toll",
+            "poweredby": false,
+            "displayrssicon": false
+        }
     }
 }
