@@ -1,0 +1,347 @@
+:root {
+    color-scheme: light dark;
+
+    --accent: light-dark(#00C2C2, #8AFFFF);
+
+
+
+
+    --back: light-dark(#EDEDED, #222222);
+    --text: light-dark(#222222, #EDEDED);
+
+    --layered: light-dark(#D9D9D9, #424242);
+    --layered-pop: light-dark(#C4C4C4, #606060);
+
+    --subtle: light-dark(#7B7B7B, #AEAEAE);
+
+
+
+
+
+
+    --code-background: var(--layered);
+}
+
+div, h1, h2, h3, h4, h5, h6, p, li, button, a, label, input, textarea {
+    font-family: "Noto Sans", sans-serif;
+}
+
+div, h1, h2, h3, h4, h5, h6, p, li {
+    color: var(--text);
+}
+
+a {
+    color: var(--accent);
+}
+
+div.title {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-block: 0.5em;
+}
+
+
+
+
+
+
+menu > li > a {
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+/* Checklists */
+li:has(> input[type="checkbox"]) {
+    position: relative;
+    list-style: none;
+    margin-left: -1em;
+}
+
+li > input[type="checkbox"] {
+    opacity: 0;
+}
+
+li:has(> input[type="checkbox"])::before {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    background: var(--layered);
+    width: 0.75em;
+    aspect-ratio: 1;
+    top: calc((100% - 0.75em) / 2);
+    border-radius: 0.125em;
+}
+
+li:has(> input[type="checkbox"][checked])::after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    width: 0.75em;
+    aspect-ratio: 1;
+    color: var(--subtle);
+    background: conic-gradient(currentColor 0 0) no-repeat 50%/ 25% 100%, conic-gradient(currentColor 0 0) no-repeat 50%/ 100% 25%;
+    transform: rotate(45deg);
+    top: calc((100% - 0.75em) / 2);
+    left: 0;
+}
+
+/* Lists */
+ol, ul {
+    padding-inline-start: 1.25em;
+}
+
+/* Horizontal Rules */
+hr {
+    border: 1px solid var(--layered-pop);
+    border-radius: 1px;
+}
+
+/* Code */
+code {
+    background: var(--layered);
+    padding: 0.125em;
+    border-radius: 0.125em;
+}
+
+/* Multiline Code */
+pre > code {
+    background: unset;
+    color: unset;
+}
+
+pre:has(> code) {
+    border-radius: 0.25em;
+}
+
+pre:has(> code) code {
+    display: grid;
+    padding: 0px;
+}
+
+pre:has(> code) code > span {
+    padding: 0 0.25em;
+    display: inline-block;
+}
+
+pre:has(> code) code > span:first-child {
+    padding-top: 0.25em;
+}
+
+pre:has(> code) code > span:last-child {
+    padding-bottom: 0.25em;
+}
+
+/* Tables */
+table {
+    border-collapse: collapse;
+    background: var(--layered);
+    border-radius: 0.25em;
+}
+
+tbody tr:nth-child(odd) {
+    background: var(--layered-pop);
+}
+
+th {
+    font-weight: normal;
+}
+
+td, th {
+    padding: 0.25em;
+}
+
+/* Button */
+button, a.button {
+    padding: 0.5em 1.5em;
+    border: none;
+    border-radius: 0.25em;
+    background: var(--layered);
+    transition: background 0.25s;
+}
+
+button:hover, a.button:hover {
+    background: var(--layered-pop);
+    cursor: pointer;
+}
+
+a.button {
+    text-decoration: none;
+    color: var(--text);
+    display: inline-block;
+}
+
+/* Text Inputs */
+input[type="text"], input[type="email"] {
+    border: none;
+    outline: none;
+    padding: 0.5em;
+    border-radius: 0.25em;
+}
+
+/* Text Area */
+textarea {
+    border: none;
+    outline: none;
+    padding: 0.5em;
+    border-radius: 0.25em;
+    overflow-y: visible;
+}
+
+
+
+
+
+
+/* General structure */
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: auto minmax(auto, 800px) auto;
+    grid-template-areas:
+                        'header header header'
+                        'left main right'
+                        'footer footer footer';
+    background: var(--back);
+    column-gap: 20px;
+}
+
+body > header {
+    background: var(--back);
+    position: sticky;
+    top: 0;
+    grid-area: header;
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+body > main {
+    grid-area: main;
+    display: grid;
+    row-gap: 50px;
+}
+
+body > footer {
+    text-align: center;
+    grid-area: footer;
+    padding: 0 20px;
+}
+
+body > header, body > footer {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+}
+
+body > main > div {
+    min-height: 300px;
+    display: grid;
+    align-items: center;
+}
+
+body > main > div > h1 {
+    margin-top: 0;
+}
+
+
+
+
+/* Nav styles */
+
+header > nav {
+    grid-column: 2 / 3;
+}
+
+header > nav > menu {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+header > nav > menu > li {
+    float: right;
+}
+
+header > nav > menu > .left {
+    float: left;
+}
+
+header > nav > menu > li > a {
+    display: block;
+    padding: 5px 10px;
+    color: var(--text);
+}
+
+
+
+
+
+
+/* Splash styles */
+div#splash p {
+    font-size: 1.5em;
+}
+
+/* Profile styles */
+div#profile {
+    display: grid;
+    grid-template-columns: min-content auto;
+    column-gap: 20px;
+}
+
+div#profile img {
+    width: 150px;
+    aspect-ratio: 1;
+    border-radius: 100%;
+}
+
+div#profile div.sidebar p {
+    text-align: center;
+    margin: 0;
+    text-wrap: wrap;
+}
+
+
+/* Contact form styles */
+div#contact_form form {
+    display: flex;
+    flex-direction: column;
+}
+
+div#contact_form form * {
+    margin: 5px 0;
+}
+
+div#contact_form textarea {
+    resize: none;
+    min-height: 10em;
+}
+
+div#contact_form button[type="submit"] {
+    width: min-content;
+}
+
+
+
+/* 404 Styles */
+div#fourohfour * {
+    text-align: center;
+    margin: 0;
+}
+
+div#fourohfour div.title {
+    font-size: 8em;
+}
+
+div#fourohfour a.button {
+    margin-top: 5em;
+}
